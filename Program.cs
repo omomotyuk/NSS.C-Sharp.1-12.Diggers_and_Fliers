@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 
 namespace _1_12.Diggers_and_Fliers
 {
@@ -26,6 +28,45 @@ namespace _1_12.Diggers_and_Fliers
             // 3. Then define classes to represent the containers that will hold various animals. Each container class should have a single property - a list to hold animal instances.
 
             // 4. Lastly, in Main() create one (or more if you like) instances of each type of animal and each container. Then add the animals to their corresponding container.
+
+            Bird parakeet = new Bird("Parakeet");
+            Bird finch = new Bird("Finch");
+
+            Rodent mouse = new Rodent("Mouse");
+            Rodent gerbil = new Rodent("Gerbil");
+
+            Snake copperheadSnake = new Snake("Copperhead Snake");
+            Snake timberRattlesnake = new Snake("Timber Rattlesnake");
+
+            BirdContainer birdCage = new BirdContainer();
+            RodentContainer rodentCage = new RodentContainer();
+            SnakeContainer snakeBox = new SnakeContainer();
+
+            birdCage.AddBird( parakeet );
+            birdCage.AddBird( finch );
+
+            rodentCage.AddRodent( mouse );
+            rodentCage.AddRodent( gerbil );
+
+            snakeBox.AddSnake( copperheadSnake );
+            snakeBox.AddSnake( timberRattlesnake );
+
+            foreach( Bird bird in birdCage.birds )
+            {
+                bird.Fly();
+                bird.Walk();
+            }
+
+            foreach( Rodent rodent in rodentCage.rodents )
+            {
+                rodent.Walk();
+            }
+
+            foreach( Snake snake in snakeBox.snakes )
+            {
+                snake.Crawl();
+                snake.Swim();
+            }
         }
     }
 }

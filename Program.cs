@@ -29,6 +29,12 @@ namespace _1_12.Diggers_and_Fliers
 
             // 4. Lastly, in Main() create one (or more if you like) instances of each type of animal and each container. Then add the animals to their corresponding container.
 
+            BirdContainer birdCage = new BirdContainer();
+            RodentContainer rodentCage = new RodentContainer();
+            SnakeContainer snakeBox = new SnakeContainer();
+            FishContainer fishAquarium = new FishContainer();
+            AntContainer antBox = new AntContainer();
+
             Bird parakeet = new Bird("Parakeet");
             Bird finch = new Bird("Finch");
 
@@ -38,9 +44,11 @@ namespace _1_12.Diggers_and_Fliers
             Snake copperheadSnake = new Snake("Copperhead Snake");
             Snake timberRattlesnake = new Snake("Timber Rattlesnake");
 
-            BirdContainer birdCage = new BirdContainer();
-            RodentContainer rodentCage = new RodentContainer();
-            SnakeContainer snakeBox = new SnakeContainer();
+            Fish bettaFish = new Fish("Betta Fish");
+            Turtle terrapin = new Turtle("Terrapin");
+
+            Ant ant = new Ant("Ant");
+            Worm worm = new Worm("Earthworm");
 
             birdCage.AddBird( parakeet );
             birdCage.AddBird( finch );
@@ -50,6 +58,12 @@ namespace _1_12.Diggers_and_Fliers
 
             snakeBox.AddSnake( copperheadSnake );
             snakeBox.AddSnake( timberRattlesnake );
+
+            fishAquarium.AddFish( bettaFish );
+            fishAquarium.AddFish( terrapin );
+
+            antBox.AddAnimal( ant );
+            antBox.AddAnimal( worm );
 
             foreach( Bird bird in birdCage.birds )
             {
@@ -66,6 +80,16 @@ namespace _1_12.Diggers_and_Fliers
             {
                 snake.Crawl();
                 snake.Swim();
+            }
+
+            foreach( ISwimAnimal animal in fishAquarium.animals )
+            {
+                animal.Swim();
+            }
+
+            foreach( IDigAnimal animal in antBox.animals )
+            {
+                animal.Dig();
             }
         }
     }
